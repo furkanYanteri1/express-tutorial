@@ -4,7 +4,6 @@ app.set('view engine', 'ejs')
 
 // middleware -> go to the definition
 app.use(logger)
-app.use(logger2)
 
 app.get('/', (req, res) => {
     console.log('here')
@@ -22,8 +21,5 @@ function logger(req, res, next) {
     console.log(req.originalUrl)
     next()
 }
-function logger2(req, res, next) {
-    console.log('again')
-    next()
-}
+
 app.listen(3000)
