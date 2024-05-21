@@ -6,11 +6,19 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res)=> {
-    res.send('User New Form')
+    res.render('users/new')
 })
 
 router.post('/', (req,res)=>{
-    res.send('Create User')
+    const isValid = false
+    if (isValid ) {
+        users.push({firstname: req.body.firstName})
+        res.redirect(`/users/${users.length-1}`)
+    } else {
+        console.log('error creating user')
+        res.render('users/new', {firstName:req.body.firstName})
+    }
+    // console.log('req:', req.body.firstName)
 })
 
 // ------------- CRUD operations per user by id (2 ways to do it)
