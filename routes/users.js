@@ -17,6 +17,7 @@ router.post('/', (req,res)=>{
 // ------method 1
 router.route('/:id')
 .get((req,res) => {
+    console.log(req.user)
     res.send(`User Get by id: ${req.params.id}`)
 })
 .put((req,res) => {
@@ -39,5 +40,9 @@ router.route('/:id')
 // })
 // // ---method 2 --- decomment
 // ------------- CRUD operations per user by id (2 ways to do it)
-
+const users = [{name:'Furkan'}, {name:'Sally'}]
+router.param('id',(req, res, next, id) => {
+    req.user = users[id]
+    next()
+})
 module.exports = router 
