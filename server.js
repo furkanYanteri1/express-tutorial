@@ -11,6 +11,8 @@ app.get('/', logger, (req, res) => {
     // res.json({ message: 'error'})
     res.render('index', {text:'test-text '})
 })
+app.use('/about', express.static("public/about"))
+
 
 //  Seperate a route and connect it to our main app
 const userRouter = require('./routes/users')
