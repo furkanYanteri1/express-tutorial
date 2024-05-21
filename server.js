@@ -2,10 +2,9 @@ const express = require('express')
 const app = express()
 app.set('view engine', 'ejs')
 
-// middleware -> go to the definition
-app.use(logger)
 
-app.get('/', (req, res) => {
+
+app.get('/', logger, (req, res) => {
     console.log('here')
     // res.status(500).json({ message: 'error'})
     // res.download('server.js')
